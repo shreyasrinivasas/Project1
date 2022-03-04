@@ -212,6 +212,64 @@ def symmetricDiffUpdate():
     z = x.symmetric_difference(y)
     print("symmetric_difference: ",z)
 #======================================================
+def takeInputforDict():
+    dict1 = {}
+    n=int(input("Enter number of elements you want in dictionary: "))
+    for i in range(1,n+1):
+        a=int(input("Enter a key (int value) {}: ".format(i)))
+        b=input("Enter a value (string) {}: ".format(i))
+        dict1[a]=b
+    print(dict1)
+    return dict1
+
+def ClearDict():
+    D1=takeInputforDict()
+    print("Dict before clearing :",D1)
+    D1.clear()
+    print("Dict after clearing :",D1)
+def CopyDict():
+    D2={}
+    D1=takeInputforDict()
+    print("Dict 1 :",D1)
+    D2=D1.copy()
+    print("Dict 2 :",D2)
+def getValue():
+    D1=takeInputforDict()
+    val=input("Enter the key for which you want the value of :")
+    x=D1.get(str(val))
+    print(val,x)
+def dictItems():
+    D1=takeInputforDict()
+    x = D1.items()
+    print(x)
+def dictKeys():
+    D1=takeInputforDict()
+    x = D1.keys()
+    print(x)
+def dictValues():
+    D1=takeInputforDict()
+    x = D1.values()
+    print(x)
+def DictPop():
+    D1=takeInputforDict()
+    val=input("Enter the key for which you want the value of :")
+    x = D1.pop(val)
+    print(x)
+def DictPopItem():
+    D1=takeInputforDict()
+    x = D1.popitem(val)
+    print(x)
+def DictSetDefault():
+    D1=takeInputforDict()
+    x = D1.setdefault(3, "Bronco")
+    print(x)
+def DictUpdate():
+    D1=takeInputforDict()
+    D1.update({"color": "White"})
+    print(D1)
+#======================================================
+#                        END
+#======================================================
 print("Select one of the DataStucture given below:\n")
 option1=int(input("1.List\n2.Tuple\n3.Set\n4.Dictionary\n"))
 if(option1 == 1):
@@ -292,49 +350,27 @@ if (option1 == 3):
     if(op == 15):
        symmetricDiffUpdate()
 if (option1 == 4):
-    print("YOu have selcted DICTIONARY!!")
+    print("You have selcted DICTIONARY!!")
     print("Enter a choice of Dictioanry method you want to use from the following :")
-    op=int(input("1.Clear\n2.Copy\n3.fromkeys\n4.get\n5.items\n6.keys\n7.pop\n8.popitem\n9.setdefault()\n10.update\n11.values\n"))
-    D1 = {"brand": "Ford","model": "Mustang","year": 1964}
+    op=int(input("1.Clear\n2.Copy\n3.get\n4.items\n5.keys\n6.Value\n7.pop\n8.popitem\n9.setdefault\n10.update"))
+
     if(op == 1):
-        D1.clear()
-        print(D1)
+        ClearDict()
     if(op == 2):
-        x = D1.copy()
-        print(x)
+        CopyDict()
     if(op == 3):
-        x = ('key1', 'key2', 'key3')
-        y = 0
-        thisdict = dict.fromkeys(x, y)
-        print(thisdict)
+        getValue()
     if(op == 4):
-        x = D1.get("model")
-        print(x)
+       dictItems()
     if(op == 5):
-        print(D1)
-        x = D1.items()
-        print(x)
+        dictKeys()
     if(op == 6):
-        print(D1)
-        x = D1.keys()
-        print(x)
+        dictValues()
     if(op == 7):
-        print(D1)
-        x = D1.pop("model")
-        print(x)
+        DictPop()
     if(op == 8):
-        print(D1)
-        x = D1.popitem()
-        print(x)
+        DictPopItem()
     if(op == 9):
-        print(D1)
-        x = D1.setdefault("model", "Bronco")
-        print(x)
+        DictSetDefault()
     if(op == 10):
-        print(D1)
-        D1.update({"color": "White"})
-        print(D1)
-    if(op == 11):
-        print(D1)
-        x = D1.values()
-        print(x)
+        DictUpdate()
